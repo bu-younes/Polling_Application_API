@@ -6,5 +6,4 @@ public class PollResultsResponse {
     private String question;
     private Map<String, Integer> results;
 
-    // Constructors, getters, and setters
 }

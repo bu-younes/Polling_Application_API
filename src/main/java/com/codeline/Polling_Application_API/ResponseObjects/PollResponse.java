@@ -2,11 +2,11 @@ package com.codeline.Polling_Application_API.ResponseObjects;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 import javax.persistence.Entity;
 import java.util.List;
-
-@Entity
+@EntityScan(basePackages = {"com.codeline.Polling_Application_API.Entity", "other.package.to.scan"})
 @Getter
 @Setter
 public class PollResponse {

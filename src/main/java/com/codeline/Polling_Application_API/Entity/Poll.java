@@ -21,12 +21,18 @@ public class Poll {
     @ElementCollection
     private List<String> choices;
 
-    // Constructors, getters, and setters
+    @ElementCollection
+    @MapKeyColumn(name = "choice")
+    @Column(name = "vote_count")
+    @CollectionTable(name = "poll_results", joinColumns = @JoinColumn(name = "poll_id"))
+    private Map<String, Integer> results = new HashMap<>();
 
-    // Methods for calculating the poll results
-    public PollResult getPollResult() {
-        // Calculate the results based on votes and return a PollResult object
-        // Implement your logic here
-        return new PollResult(this);
+
+    public Map<String, Integer> getResults() {
+        return results;
+    }
+
+    public void setResults(Map<String, Integer> results) {
+        this.results = results;
     }
 }

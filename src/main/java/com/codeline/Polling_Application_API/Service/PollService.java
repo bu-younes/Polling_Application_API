@@ -65,7 +65,6 @@ public class PollService {
         if (optionalPoll.isPresent()) {
             pollRepository.deleteById(pollId);
         } else {
-            // Handle poll not found exception
         }
     }
 }
