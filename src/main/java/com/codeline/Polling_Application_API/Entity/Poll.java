@@ -11,7 +11,6 @@ import java.util.Map;
 @Entity
 @Getter
 @Setter
-
 public class Poll {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,4 +22,11 @@ public class Poll {
     private List<String> choices;
 
     // Constructors, getters, and setters
+
+    // Methods for calculating the poll results
+    public PollResult getPollResult() {
+        // Calculate the results based on votes and return a PollResult object
+        // Implement your logic here
+        return new PollResult(this);
+    }
 }
