@@ -34,7 +34,8 @@ public class PollService {
             // Handle poll not found exception
         }
     }
-//new comments                   
+
+
     public Map<String, Integer> getPollResults(Long pollId) {
         Optional<Poll> optionalPoll = pollRepository.findById(pollId);
         if (optionalPoll.isPresent()) {
