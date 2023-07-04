@@ -1,24 +1,22 @@
 package com.codeline.Polling_Application_API.Models;
 
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 
+@Getter
+@Setter
 @Entity
 @Data
-@Setter
-@Getter
-@Table(name = "users")
-public class Users {
+@NoArgsConstructor
+@AllArgsConstructor
+public class Users extends BaseEntity{
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    Long id;
 
-    @Column(unique = true, nullable = false)
-    private String username;
+    String username;
 
-    @Column(nullable = false)
-    private String password;
+    String password;
+
 }
