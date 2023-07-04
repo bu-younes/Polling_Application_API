@@ -7,7 +7,9 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Getter
 @Setter
@@ -23,4 +25,10 @@ public class Poll {
 
     @ElementCollection
     private List<String> choices = new ArrayList<>();
+
+    @ElementCollection
+    @CollectionTable(name = "poll_vote_counts", joinColumns = @JoinColumn(name = "poll_id"))
+    @MapKeyColumn(name = "choice")
+    @Column(name = "vote_count")
+    private Map<String, Integer> voteCounts = new HashMap<>();
 }
