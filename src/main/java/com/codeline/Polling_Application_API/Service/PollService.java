@@ -40,6 +40,9 @@ public class PollService {
         return pollOptional.orElseThrow(() -> new PollNotFoundException("Poll not found with ID: " + pollId));
     }
 
+    public Poll updatePoll(Poll poll) {
+        return pollRepository.save(poll);
+    }
 
 
 }

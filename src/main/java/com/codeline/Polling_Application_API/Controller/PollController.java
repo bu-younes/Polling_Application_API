@@ -50,4 +50,20 @@ public class PollController {
         Poll poll = pollService.getPollById(pollId);
         return new ResponseEntity<>(poll, HttpStatus.OK);
     }
+
+    @PutMapping("/{pollId}")
+    public ResponseEntity<Poll> updatePoll(
+            @PathVariable("pollId") long pollId,
+            @RequestBody Poll updatedPollRequest
+    ) {
+        Poll poll = pollService.getPollById(pollId);
+        poll.setQuestion(updatedPollRequest.getQuestion());
+        poll.setChoices(updatedPollRequest.getChoices());
+        Poll updatedPoll = pollService.updatePoll(poll);
+        return new ResponseEntity<>(updatedPoll, HttpStatus.OK);
+    }
+
+
+
+
 }
