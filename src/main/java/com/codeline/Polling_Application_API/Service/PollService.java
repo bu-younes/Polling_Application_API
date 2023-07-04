@@ -2,10 +2,13 @@ package com.codeline.Polling_Application_API.Service;
 
 import com.codeline.Polling_Application_API.Models.Poll;
 import com.codeline.Polling_Application_API.Repository.PollRepository;
+import com.codeline.Polling_Application_API.exception.PollNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Map;
+import java.util.Optional;
+
 
 @Service
 public class PollService {
@@ -30,4 +33,13 @@ public class PollService {
 
         return pollRepository.save(poll);
     }
+
+
+    public Poll getPollById(long pollId) {
+        Optional<Poll> pollOptional = Optional.ofNullable(pollRepository.findById(pollId));
+        return pollOptional.orElseThrow(() -> new PollNotFoundException("Poll not found with ID: " + pollId));
+    }
+
+
+
 }

@@ -13,4 +13,3 @@ public class PollingApplicationApiApplication {
 
 }
 
-//logging.level.org.springframework: DEBUG
